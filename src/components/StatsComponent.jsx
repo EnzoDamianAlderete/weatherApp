@@ -17,6 +17,8 @@ const StatsComponent =()=>{
                 <h4 className="text-slate-300 font-bold">Visibility</h4>
                 <p className="text-sltone-900 font-bold text-xl">23km</p>
             </div>
+
+            
         </div>
     )
 }

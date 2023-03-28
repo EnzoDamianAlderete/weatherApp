@@ -10,8 +10,8 @@ const HeaderComponent =()=>{
                 </div>
 
                 <div>
-                    <h2 className="Today text-2xl font-semibold">Heavy Rain</h2>
-                    <p className="Day font-semibold mb-4">Monday</p>
+                    <h2 className="Today text-2xl">Heavy Rain</h2>
+                    <p className="Day mb-4">Monday</p>
                 </div>
             </div>
 
