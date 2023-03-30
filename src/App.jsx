@@ -1,20 +1,41 @@
 import './App.css';
-import HeaderComponent from './components/HeaderComponent';
-import InputComponent from './components/InputComponent';
-import LocationComponent from './components/LocationComponent';
-import Navbar from './components/Navbar';
-import StatsComponent from './components/StatsComponent';
-import DaysContainer from './containers/DaysContainer';
+import HomePage from './pages/HomePage';
+import SearchPage from './pages/SearchPage';
+import FavLocationsPage from './pages/FavLocationsPage';
+import ForecastPage from './pages/ForecastPage';
+import Page404 from './pages/Page404';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomePage/>,
+  },
+  {
+    path: "/search",
+    element: <SearchPage/>,
+  },
+  {
+    path: "/favs-locations",
+    element: <FavLocationsPage/>,
+  },
+  {
+    path: "/forecast",
+    element: <ForecastPage/>,
+  },
+  {
+    path: "*",
+    element: <Page404/>,
+  },
+]);
 
 function App() {
   return (
-    <div className='body flex flex-col bg-slate-100 min-h-full'>
-      <InputComponent/>
-      <LocationComponent/>
-      <HeaderComponent/>
-      <StatsComponent/> 
-      <DaysContainer/>
-      <Navbar/>
+    <div className='body flex flex-row flex-wrap bg-slate-100 App'>
+       <RouterProvider router={router} />
     </div>
   );
 }

@@ -2,7 +2,7 @@ import './StatsComponent.css';
 
 const StatsComponent =()=>{
     return(
-        <div className="Stats flex bg-slate-50 justify-around text-center py-4 rounded-xl m-4 drop-shadow-lg">
+        <div className="Stats flex bg-slate-50 justify-around text-center py-4 rounded-xl my-4 drop-shadow-lg">
             <div className="">
                 <h4 className="text-slate-300 font-bold">Wind</h4>
                 <p className="text-sltone-900 font-bold text-xl">33m/h</p>

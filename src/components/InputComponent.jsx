@@ -1,6 +1,6 @@
 const InputComponent =()=>{
     return(
-        <label className="relative block p-4">
+        <label className="relative block w-full p-4 ">
             <span className="sr-only">Search</span>
             <span
             onClick={()=>alert('jola')} 
