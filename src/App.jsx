@@ -8,6 +8,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import { AppProvider } from './context/AppContext';
 
 const router = createBrowserRouter([
   {
@@ -35,7 +36,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div className='body flex flex-row flex-wrap bg-slate-100 App'>
+      <AppProvider>
        <RouterProvider router={router} />
+       </AppProvider>
     </div>
   );
 }

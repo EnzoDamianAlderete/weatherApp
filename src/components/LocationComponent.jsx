@@ -1,7 +1,7 @@
 
-const LocationComponent =()=>{
+const LocationComponent =({dataLocation})=>{
     return(
-        <h2 className="pt-2"><span className="font-bold">Benin,</span> Nigeria</h2>
+        <h2 className="pt-2"><span className="font-bold">{dataLocation.name},</span>{dataLocation.country}</h2>
     )
 }
 

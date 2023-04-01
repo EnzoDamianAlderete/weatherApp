@@ -1,20 +1,19 @@
 import HourComponent from "../components/HourCompoent";
 import './HoursContainer.css';
 
-const HourContainer =()=>{
+const HourContainer =({dailyForecast})=>{
+    // const hours =[01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24];
 
     return(
         <>
-        <h3 className="text-md font-medium">Today:</h3>
-        <div className="container--hours rounded-xl shadow-2xl m-2 ">
-            <HourComponent/>
-            <HourComponent/>
-            <HourComponent/>
-            <HourComponent/>
-            <HourComponent/>
-            <HourComponent/>
-            <HourComponent/>
-            <HourComponent/>
+        <div className="container--hours rounded-xl shadow-2xl m-2 mb-4">
+            {dailyForecast.map((elemet, index)=>{
+                return(
+                    <span key={index}>
+                        <HourComponent elemet={elemet}/>
+                    </span>
+                )
+            })}
         </div>
         </>
         

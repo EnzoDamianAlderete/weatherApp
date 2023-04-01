@@ -8,6 +8,9 @@ const FavLocationsPage =()=>{
             <InputComponent />
             <div className="flex flex-wrap align-middle justify-around">
             <FavLocationComponent/>
+            <FavLocationComponent/>
+            <FavLocationComponent/>
+            <FavLocationComponent/>
             </div>
             
             <Navbar/>

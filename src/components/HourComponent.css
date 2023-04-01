@@ -1,7 +1,8 @@
-img{
-    margin-left: 0.5rem;
+.img--icon__hour{
+   margin-left: 0.1rem;
 }
 
 .card--hour{
-    min-width:65px;
+    min-width:90px;
+    padding: 1rem;
 }

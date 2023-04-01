@@ -1,19 +1,20 @@
 import './DayComponent.css'
 
-const DayComponent =()=>{
+const DayComponent =({element,daysWeek,index})=>{
+    
     return(
         <div className="bg-neutral-900 rounded-2xl text-neutral-50 flex justify-around">
-            <h4 className="text-md p-4">Monday</h4>
+            <h4 className="text-lg p-4">{daysWeek[index]}</h4>
 
             <div className="flex">
-                <p className=" text-md p-4">29° <span className='text-md text-blue-500'>22°</span></p>
+                <p className=" text-md p-4">{element.day.maxtemp_c}° <span className='text-md text-blue-500'>{element.day.mintemp_c}°</span></p>
             </div>
 
             
                 <img 
                     className="icon"
-                    src={`../img/Clear.svg`} 
-                    alt="rain" />
+                    src={element.day.condition.icon} 
+                    alt="icon" />
             
         </div>
     )

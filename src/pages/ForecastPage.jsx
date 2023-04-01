@@ -1,13 +1,15 @@
+import { useContext } from "react";
 import LocationComponent from "../components/LocationComponent";
 import Navbar from "../components/Navbar";
-import FavsLocationsContainer from "../containers/FavsLocationsContainer";
-
+import ForecastContainer from "../containers/ForecastContainer";
+import { AppContext } from "../context/AppContext";
 
 const ForecastPage =()=>{
+    const {dataLocation} = useContext(AppContext);
     return(
-        <div className="flex flex-col">
-        <LocationComponent/>
-        <FavsLocationsContainer/>
+        <div className="overflow-hidden p-2 max-w-full flex flex-col justify-center align-middle">
+         <LocationComponent dataLocation={dataLocation}/>
+        <ForecastContainer/>
         <Navbar/>
         </div>
     )

@@ -1,26 +1,27 @@
 import React from "react";
 import './HeaderComponent.css';
 
-const HeaderComponent =()=>{
+const HeaderComponent =({daysWeek,currentData,currentDataIcon})=>{
+
     return(
         <div className="headerToday drop-shadow-lg h-full">
             <div>
                 <div>
-                    <img src={`../img/Heavy rain.svg`} alt="rain" />
+                    <img src={`../img/${currentDataIcon}.svg`} alt="icon" />
                 </div>
 
                 <div>
-                    <h2 className="Today text-2xl">Heavy Rain</h2>
-                    <p className="Day mb-4">Monday</p>
+                    <h2 className="Today text-2xl">{currentDataIcon}</h2>
+                    <p className="Day mb-4">{daysWeek[0]}</p>
                 </div>
             </div>
 
             <div>
                 <div className="mediaTemp-today">
-                    29°
+                    {currentData.temp_c}°
                 </div>
                 <div className="feelsLike">
-                    Feels like 30°
+                    Feels like {currentData.feelslike_c}°
                 </div>
                 
             </div>
