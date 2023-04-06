@@ -57,18 +57,21 @@ const Navbar =()=>{
             </Link>
             <Link to={"/favs-locations"}>
                 <div>
-                    <svg 
-                    width="32" 
-                    height="32" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth="2" 
-                    viewBox="0 0 24 24" 
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 20.25S2.625 15 2.625 8.625A4.875 4.875 0 0 1 12 6.75v0a4.875 4.875 0 0 1 9.375 1.875C21.375 15 12 20.25 12 20.25Z"></path>
-                    </svg>
+                <svg 
+                width="32" 
+                height="32" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth="2" 
+                viewBox="0 0 24 24" 
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z"></path>
+                <path d="m20.08 15.974-5.09-3.131a.673.673 0 0 0-.29-.104l-2.147-.29a.731.731 0 0 0-.779.44l-1.284 2.879a.75.75 0 0 0 .131.815l1.763 1.903a.77.77 0 0 1 .187.657l-.365 1.856"></path>
+                <path d="M6.094 5.21 5.25 7.199a.75.75 0 0 0-.01.554l1.08 2.867a.741.741 0 0 0 .544.478l2.006.432a.732.732 0 0 1 .515.403l.357.74a.768.768 0 0 0 .675.422h1.265"></path>
+                <path d="m14.297 3.29.872 1.574a.76.76 0 0 1-.15.919L12.497 8.06a.673.673 0 0 1-.14.103l-1.153.638a.806.806 0 0 1-.357.093H8.841a.76.76 0 0 0-.694.46l-.778 1.847"></path>
+                </svg>
                 </div>
                 </Link>
         </div>

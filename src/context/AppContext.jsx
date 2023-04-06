@@ -10,6 +10,7 @@ export const AppProvider = ({children}) =>{
   const [dailyForecast , setDailyForecast] = useState([]);
   const [daysWeek,setDaysWeek]= useState([]);
   const [searchUbication,setSearchUbication]= useState([]);
+  const [ubication, setUbication] = useState('london');
 
   
 
@@ -52,7 +53,7 @@ export const AppProvider = ({children}) =>{
           }
       };
       
-      fetch('https://weatherapi-com.p.rapidapi.com/current.json?q=corrientes', options)
+      fetch(`https://weatherapi-com.p.rapidapi.com/current.json?q=${ubication}`, options)
           .then(response => response.json())
           .then(response => 
               {
@@ -70,12 +71,22 @@ export const AppProvider = ({children}) =>{
               
           })
           .catch(err => console.error(err));
-  },[])
+  },[ubication])
 
 
     
 
-  return < AppContext.Provider value={{searchUbication,setSearchUbication,daysWeek,dataLocation,currentData,currentDataIcon,forecast,dailyForecast}}>
+  return < AppContext.Provider value={{
+  searchUbication,
+  setSearchUbication,
+  daysWeek,
+  dataLocation,
+  currentData,
+  currentDataIcon,
+  forecast,
+  dailyForecast,
+  ubication, 
+  setUbication}}>
             {children}
           </AppContext.Provider>
 }

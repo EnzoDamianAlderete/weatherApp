@@ -1,9 +1,24 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const InputComponent =()=>{
+const InputComponent =({ubication, setUbication})=>{
 
         const [query, setQuery] = useState('');
         const [results, setResults] = useState([]);
+        const navigate = useNavigate();
+
+        const currentLocation =()=>{
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                  let latitud = position.coords.latitude;
+                  let longitud = position.coords.longitude;
+                  setUbication(`${latitud},${longitud}`);
+                });
+              } else {
+                console.log("Geolocalización no es soportada por este navegador.");
+              }
+              navigate('/');
+        }
       
         useEffect(() => {
           if (query.length > 3) {
@@ -36,26 +51,20 @@ const InputComponent =()=>{
            setResults([]);
            console.log(`en resutls queda esto: ${results}`)
            console.log(`en query queda esto: ${query}`)
+           setUbication(query);
          }
-
-        //  const handleResultClick = (result) => {
-        //     setQuery(result);
-        //     setResults([]);
-        //     // Send the selected result to the server for processing
-        //     axios.post(`https://api.example.com/process`, { result })
-        //       .then(response => {
-        //         console.log(response.data);
-        //       })
-        //       .catch(error => {
-        //         console.error(error);
-        //       });
-        //   }
+        
+         const onSearch=()=>{
+            navigate("/")
+         }
+           
 
     return(
+        <>
         <label className="relative block w-full p-4 ">
             <span className="sr-only">Search</span>
             <span
-            onClick={(query)=>alert(`locacion:${query.stringify()}`)} 
+            onClick={()=>onSearch()}
             className=" text-slate-400 absolute inset-y-0 right-0 flex items-center pr-8">
             <svg 
             width="26" 
@@ -77,13 +86,22 @@ const InputComponent =()=>{
             {query.length > 0 && (
             <ul>
                 {results.map((result,index) => (
-                <li key={index} onClick={() => handleResultClick(result.name)}>
+                <li className="bg-neutral-800 text-white p-2" 
+                key={index} 
+                onClick={()=>handleResultClick(`${result.name},${result.country}`)}
+                >
                     {result.name},{result.country}
                 </li>
                 ))}
             </ul>
             )}
         </label>
+
+        <button
+        className="bg-emerald-400 text-white p-3 rounded-full"
+        onClick={currentLocation}
+        >my ubication</button>
+        </>
     )
 }
 
