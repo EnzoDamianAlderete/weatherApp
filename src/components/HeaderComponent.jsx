@@ -4,7 +4,7 @@ import './HeaderComponent.css';
 const HeaderComponent =({daysWeek,currentData,currentDataIcon})=>{
 
     return(
-        <div className="headerToday drop-shadow-lg h-full">
+        <div className="headerToday drop-shadow-lg h-full md:w-full md:m-4">
             <div>
                 <div>
                     <img src={`../img/${currentDataIcon}.svg`} alt="icon" />

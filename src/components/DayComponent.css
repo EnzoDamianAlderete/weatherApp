@@ -3,3 +3,9 @@
    height: 70px;
    width: 70px;
 }
+
+.conteiner--info__day{
+   min-width: 111px;
+   max-width: 112px;
+   overflow: hidden;
+}

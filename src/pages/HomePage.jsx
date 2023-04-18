@@ -10,12 +10,19 @@ import { AppContext } from "../context/AppContext";
 const HomePage =()=>{
 
     const {daysWeek,dataLocation,currentData,currentDataIcon,dailyForecast,forecast} = useContext(AppContext);
+
+    if(!dataLocation){
+        return <LocationComponent/>
+    }
+
     return(
         
-            <div className=" overflow-hidden p-2 max-w-full flex flex-col justify-center align-middle">
+        <div className=" overflow-hidden p-2 max-w-full flex flex-col justify-center align-middle">
             <LocationComponent dataLocation={dataLocation}/>
-            <HeaderComponent daysWeek={daysWeek} currentData={currentData} currentDataIcon={currentDataIcon}/>
-            <StatsComponent currentData={currentData}/>
+                <div className="flex flex-col md:flex-row">
+                <HeaderComponent daysWeek={daysWeek} currentData={currentData} currentDataIcon={currentDataIcon}/>
+                <StatsComponent currentData={currentData}/>
+                </div>
             <h3 className="text-md font-medium flex pl-2">Today:</h3>
             <HoursContainer dailyForecast={dailyForecast}/>
             <h3 className="text-md font-medium flex pl-2">Next days:</h3>

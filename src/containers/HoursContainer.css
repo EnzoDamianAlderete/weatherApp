@@ -1,4 +1,5 @@
 .container--hours{
     display: flex;
     overflow: scroll;
+    overflow-y: hidden;
 }
