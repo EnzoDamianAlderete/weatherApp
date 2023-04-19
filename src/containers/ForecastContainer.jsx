@@ -1,13 +1,12 @@
 import HoursContainer from "./HoursContainer";
 import ForecastSingleDay from "../components/ForecastSingleDay"
 
-const ForecastContainer =({forecastSingleDay})=>{
+const ForecastContainer =({forecastSingleDay,daysWeek,index})=>{
 
 
     return(
         <div className="bg-blue-600  rounded-lg text-white">
-            <h3 className="text-md font-medium flex pl-2">Saturday:</h3>
-            <ForecastSingleDay forecastSingleDay={forecastSingleDay}/>
+            <ForecastSingleDay index={index} daysWeek={daysWeek} forecastSingleDay={forecastSingleDay}/>
         </div>
     )
 }

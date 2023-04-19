@@ -11,7 +11,7 @@ const FavLocationsPage =()=>{
     console.log('capi desde page',capitals)
     return(
         <div className="flex flex-col">
-        <h2 className="font-bold text-3xl mb-4">Important capitals on the world</h2>
+        <h2 className="font-bold text-3xl mb-4">Capitals on the world</h2>
         <div className="flex flex-wrap">
             <div className="flex flex-wrap align-middle justify-around gap-4">
                 {capitals.map((elemet, index) =>{

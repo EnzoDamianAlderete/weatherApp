@@ -16,6 +16,7 @@ export const AppProvider = ({children}) =>{
   const [capitals, setCapitals] = useState([]);
   const nameCapitals=['London','Washington','Moscow','Paris','Beijing','Buenos Aires']
 
+  const {REACT_APP_KEY,REACT_APP_HOST,REACT_APP_URI_API} = process.env;
   
 
   function getDates() {
@@ -53,12 +54,12 @@ export const AppProvider = ({children}) =>{
       const options = {
           method: 'GET',
           headers: {
-              'X-RapidAPI-Key': '144a3cf0c0msh0c66d76d19b8f57p1949b4jsn0aa250a87484',
-              'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+              'X-RapidAPI-Key': `${REACT_APP_KEY}`,
+              'X-RapidAPI-Host': `${REACT_APP_HOST}`
           }
       };
       
-      fetch(`https://weatherapi-com.p.rapidapi.com/current.json?q=${ubication}`, options)
+      fetch(`https://${REACT_APP_URI_API}/current.json?q=${ubication}`, options)
           .then(response => response.json())
           .then(response => 
               {
@@ -68,7 +69,7 @@ export const AppProvider = ({children}) =>{
               })
           .catch(err => console.error(err));
 
-          fetch('https://weatherapi-com.p.rapidapi.com/forecast.json?q=corrientes&days=3', options)
+          fetch(`https://${REACT_APP_URI_API}/forecast.json?q=${ubication}&days=3`, options)
           .then(response => response.json())
           .then(response =>{
               setForecast(response.forecast.forecastday);
@@ -78,7 +79,7 @@ export const AppProvider = ({children}) =>{
           .catch(err => console.error(err));
     let arrayCapitals = []
     nameCapitals.map( cap =>{
-      fetch(`https://weatherapi-com.p.rapidapi.com/current.json?q=${cap}`, options)
+      fetch(`https://${REACT_APP_URI_API}/current.json?q=${cap}`, options)
           .then(response => response.json())
           .then(response => 
               {
