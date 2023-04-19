@@ -61,32 +61,26 @@ const InputComponent =({ubication, setUbication})=>{
 
     return(
         <>
-        <label className="relative block w-full p-4 ">
+        <label className="relative w-full p-4 flex flex-col">
             <span className="sr-only">Search</span>
-            <span
-            onClick={()=>onSearch()}
-            className=" text-slate-400 absolute inset-y-0 right-0 flex items-center pr-8">
-            <svg 
-            width="26" 
-            height="26" 
-            fill="currentColor" 
-            viewBox="0 0 24 24" 
-            xmlns="http://www.w3.org/2000/svg">
-                <path 
-                d="M15.755 14.255h-.79l-.28-.27a6.471 6.471 0 0 0 1.57-4.23 6.5 6.5 0 1 0-6.5 6.5c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99 1.49-1.49-4.99-5Zm-6 0c-2.49 0-4.5-2.01-4.5-4.5s2.01-4.5 4.5-4.5 4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5Z"></path>
-            </svg>
-            </span>
+            <div className="flex gap-2">
             <input 
             onChange={(e)=>handleInputChange(e)}
             value={query}
-            className="placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-3xl py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" 
+            className="placeholder:text-slate-400 bg-white w-full border border-slate-300 rounded-3xl py-2 pl-9 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" 
             placeholder="Search for location" 
             type="text" 
             name="search"/>
+            <button
+            onClick={()=>onSearch()}
+            className="bg-cyan-400 text-white p-2 rounded-full"
+            >Search
+            </button>
+            </div>
             {query.length > 0 && (
             <ul>
                 {results.map((result,index) => (
-                <li className="bg-neutral-800 text-white p-2" 
+                <li className="bg-neutral-800 text-white p-2 hover:cursor-pointer w-9/12" 
                 key={index} 
                 onClick={()=>handleResultClick(`${result.name},${result.country}`)}
                 >
@@ -95,12 +89,17 @@ const InputComponent =({ubication, setUbication})=>{
                 ))}
             </ul>
             )}
+            
+        
         </label>
 
+        
+
         <button
-        className="bg-emerald-400 text-white p-3 rounded-full"
+        className="bg-emerald-400 text-white p-3 rounded-full self-center "
         onClick={currentLocation}
-        >my ubication</button>
+        >My location
+        </button>
         </>
     )
 }
