@@ -6,18 +6,15 @@ import StatsComponent from "../components/StatsComponent";
 import DaysContainer from "../containers/DaysContainer";
 import HoursContainer from "../containers/HoursContainer";
 import { AppContext } from "../context/AppContext";
+import LoaderComponent from "../components/LoaderComponent";
 
 const HomePage =()=>{
 
-    const {daysWeek,dataLocation,currentData,currentDataIcon,dailyForecast,forecast} = useContext(AppContext);
-
-    if(!dataLocation){
-        return <LocationComponent/>
-    }
+    const {daysWeek,dataLocation,currentData,currentDataIcon,dailyForecast,forecast,loading,setLoading} = useContext(AppContext);
 
     return(
-        
-        <div className=" overflow-hidden p-2 max-w-full flex flex-col justify-center align-middle">
+        <>
+        {loading ? <LoaderComponent/> : <div className=" overflow-hidden p-2 max-w-full flex flex-col justify-center align-middle">
             <LocationComponent dataLocation={dataLocation}/>
                 <div className="flex flex-col md:flex-row">
                 <HeaderComponent daysWeek={daysWeek} currentData={currentData} currentDataIcon={currentDataIcon}/>
@@ -28,7 +25,10 @@ const HomePage =()=>{
             <h3 className="text-md font-medium flex pl-2">Next days:</h3>
             <DaysContainer daysWeek={daysWeek} forecast={forecast}/>
             <Navbar/>
-        </div> 
+        </div> }
+        
+        </>
+        
         
         
     )

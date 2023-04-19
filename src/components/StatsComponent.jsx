@@ -1,6 +1,6 @@
 const StatsComponent =({currentData})=>{
     return(
-        <div className="flex md:flex-col md:p-4 bg-slate-50 justify-around text-center py-4 rounded-xl my-4 drop-shadow-lg">
+        <div className="flex md:flex-col md:text-white md:bg-cyan-600 md:p-4 bg-slate-50 justify-around text-center py-4 rounded-xl my-4 drop-shadow-lg">
             <div className="">
                 <h4 className="text-slate-300 font-bold">Wind</h4>
                 <p className="text-sltone-900 font-bold text-xl">{currentData.wind_mph}m/h</p>

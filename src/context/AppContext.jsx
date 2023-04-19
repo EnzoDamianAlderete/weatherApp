@@ -11,6 +11,10 @@ export const AppProvider = ({children}) =>{
   const [daysWeek,setDaysWeek]= useState([]);
   const [searchUbication,setSearchUbication]= useState([]);
   const [ubication, setUbication] = useState('london');
+  const [loading, setLoading] = useState(true);
+  
+  const [capitals, setCapitals] = useState([]);
+  const nameCapitals=['London','Washington','Moscow','Paris','Beijing','Buenos Aires']
 
   
 
@@ -45,6 +49,7 @@ export const AppProvider = ({children}) =>{
 
 
   useEffect(()=>{
+    setLoading(true);
       const options = {
           method: 'GET',
           headers: {
@@ -71,6 +76,20 @@ export const AppProvider = ({children}) =>{
               
           })
           .catch(err => console.error(err));
+    let arrayCapitals = []
+    nameCapitals.map( cap =>{
+      fetch(`https://weatherapi-com.p.rapidapi.com/current.json?q=${cap}`, options)
+          .then(response => response.json())
+          .then(response => 
+              {
+                arrayCapitals = arrayCapitals.concat(response);
+                setCapitals(arrayCapitals);
+              })
+          .catch(err => console.error(err));
+          })
+    setTimeout(() => {
+      setLoading(false);
+    }, 1300);
   },[ubication])
 
 
@@ -86,6 +105,9 @@ export const AppProvider = ({children}) =>{
   forecast,
   dailyForecast,
   ubication, 
+  capitals,
+  loading,
+  setLoading,
   setUbication}}>
             {children}
           </AppContext.Provider>
