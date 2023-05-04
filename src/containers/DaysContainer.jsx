@@ -3,7 +3,7 @@ import DayComponent from "../components/DayComponent";
 const DaysContainer =({forecast,daysWeek})=>{
 
     return(
-        <div className="  bg-neutral-900 rounded-3xl mb-14">
+        <div className="bg-neutral-900 rounded-3xl mb-14">
             {forecast.map((element, index)=>{
                 return(
                     <span key={index} >
